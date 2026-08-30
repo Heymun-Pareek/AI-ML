@@ -98,6 +98,52 @@ df.dropna(inplace=True, axis=0,1)
 from matplotlib import pyplot as plt
 ```
 
+`plt.style.use("ggplot")`
+
+#### Histogram Plot
+```py
+
+# Find the number of bins for hisotgram plot
+minvalue = min(df.colname.values)
+maxvalue = max(df.colname.values)
+
+#One of the ways to find the number of bins
+bins = int(10*(maxvalue - minvalue)) + 1
+
+df.hist(bins = bins)
+```
+
+#### Barplots
+```py
+# Standard Barplot
+df.colname.value_counts().plot(kind="bar", color="g")
+
+# Grouped Barplot
+df.groupby(["colname1", "colname2"]).count()
+df.groupby(["colname1", "colname2"]).count().unstack().plot(kind="bar")
+```
+
+#### Boxplots
+```py
+df.boxplot(figsize=(x,y));
+```
+
+#### Scatterplot
+```py
+df.plot(x="colname1", y="colname2", kind="scatter", figsize(x,y))
+```
+
+#### Generating data according to random function
+- In real life, the data is never exactly according to a mathematical function as it contains noise, thus we add some noise to our generated data. np.random.normal(0, 1, 1) generates values from normal distribution with mean 0, standard deviation as 1 and third parameter represents the size of the numpy array (recall dimensions), so its 1 dimensional, i.e., a list that comprises of a single element
+
+```py
+print (np.random.normal(0, 1, 1)[0])
+print (np.random.normal(0, 1, 10))
+```
+
+#### Matplotlib
+- [Add permalink for readings.md]
+
 
 
 
